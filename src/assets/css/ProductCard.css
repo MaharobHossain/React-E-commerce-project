@@ -1,0 +1,30 @@
+.product-cart:hover img{
+    transition: all 1.3s ease-out;
+    transform: scale(1.2);
+}
+
+.user_icon{
+position: relative;
+}
+.child_data {
+    
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.404);
+    width: 7rem;
+    justify-content: center;
+    display: flex;
+    left: -205%;
+    padding: 1rem;
+    background-color: white;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+.user_icon:hover .child_data{
+    visibility: visible;
+} 
+.child_data button{
+   padding: 8px;
+}
