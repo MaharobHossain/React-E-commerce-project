@@ -7,6 +7,7 @@ import { useCart } from 'react-use-cart';
 import { UserContext } from '../components/UserProvider';
 import axios from 'axios';
 import Toaster from '../components/common/Toaster';
+import Blogs from './../pages/Blogs';
 
 
 
@@ -55,6 +56,14 @@ const Navbar = () => {
                <div className="hidden  justify-end md:flex md:w-1/3">
                   <Search />
                </div>
+
+               <div className='#'>
+                  <Link to={'/blogs'}
+                  className='text-neutral-500 underline-offset-4 mx-4 hover:text-black hover:underline'>
+                  Blogs
+                  </Link>
+              </div>
+
                <div className="flex justify-end md:w-1/3 ">
                   <Link title='Cart' to={'/cart'} className='mx-5 text-3xl hover:underline relative' alt='card icon'>
                      <ion-icon name="cart-outline"></ion-icon>

@@ -14,6 +14,8 @@ import UserProvider from './components/UserProvider';
 import CheckOut from './pages/CheckOut';
 import Dashboard from './pages/user/Dashboard';
 import Profile from './pages/user/Profile';
+import Blogs from './pages/Blogs';
+
 
 function App() {
   axios.defaults.baseURL="https://uol-v-2.hostprohub.com/api/";
@@ -34,7 +36,7 @@ function App() {
       <Route exact path='/Login' element={<Login/>}></Route>
       <Route exact path='/user/dashbord' element={<Dashboard/>}></Route>
       <Route exact path='/user/profile' element={<Profile/>}></Route>
-      
+      <Route exact path='/blogs' element={<Blogs/>}></Route>
     </Routes>
     </UserProvider>
     </SettingsProvider>
