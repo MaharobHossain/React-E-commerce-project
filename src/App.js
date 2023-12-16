@@ -15,6 +15,8 @@ import CheckOut from './pages/CheckOut';
 import Dashboard from './pages/user/Dashboard';
 import Profile from './pages/user/Profile';
 import Blogs from './pages/Blogs';
+import AddAddress from './pages/user/AddAddress';
+import AddressBook from './pages/user/AddressBook';
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
       <Route exact path='/user/dashbord' element={<Dashboard/>}></Route>
       <Route exact path='/user/profile' element={<Profile/>}></Route>
       <Route exact path='/blogs' element={<Blogs/>}></Route>
+      <Route exact path='/user/addresses' element={<AddAddress/>} ></Route>
+      <Route exact path='/user/add-address' element={<AddressBook/>} ></Route>
     </Routes>
     </UserProvider>
     </SettingsProvider>
