@@ -39,8 +39,8 @@ function App() {
       <Route exact path='/user/dashbord' element={<Dashboard/>}></Route>
       <Route exact path='/user/profile' element={<Profile/>}></Route>
       <Route exact path='/blogs' element={<Blogs/>}></Route>
-      <Route exact path='/user/addresses' element={<AddAddress/>} ></Route>
-      <Route exact path='/user/add-address' element={<AddressBook/>} ></Route>
+      <Route exact path='/user/addresses' element={<AddressBook/>} ></Route>
+      <Route exact path='/user/add-address' element={<AddAddress/>} ></Route>
     </Routes>
     </UserProvider>
     </SettingsProvider>

@@ -90,6 +90,12 @@ function MobileMenu() {
                              Sing-Up
                             </Link>
                            </li>
+
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/Login'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                             Log-In
+                            </Link>
+                           </li>
                 </ul>
               </div>
             </Dialog.Panel>

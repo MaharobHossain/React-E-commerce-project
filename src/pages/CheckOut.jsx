@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Toaster from '../components/common/Toaster';
+import { UserContext } from '../components/UserProvider';
 
 
 
@@ -14,6 +15,7 @@ import Toaster from '../components/common/Toaster';
 const CheckOut = () => {
     const navigate = useNavigate();
     const settingsDataFromContext = useContext(SettingsContext);
+    const {userData, updateUserData} = useContext(UserContext);
     const {items, cartTotal, emptyCart} = useCart();
     const [customerName, setCustomerName] = useState();
     const [email, setEmail] = useState("");
@@ -27,6 +29,35 @@ const CheckOut = () => {
 
     const [insideDhakaAreas, setInsideDhakaAreas] = useState();
     const [outsideAreas, setOutsideAreas] = useState();
+    const [defaultAddress, setDefaultAddress] = useState();
+    
+
+    useEffect(() => {
+
+        if (userData?.token) {
+            console.log(userData?.id)
+            axios.defaults.headers.common["Authorization"] = `Bearer ${userData?.token}`;
+            axios.get("get-customer-addresses/" + userData?.id)
+                
+                .then(response => {
+                    console.log(response)
+
+                    if (response?.data?.success) {
+                        console.log(response?.data?.data);
+                        setDefaultAddress(
+                            response?.data?.data
+                            .find(address => address.is_default == 1)
+                            );
+                    }
+
+                }).catch(error => {
+                    console.log(error);
+                })
+        }
+
+    }, [userData])
+
+
 
     useEffect(()=>{
         if(city=='inside_dhaka'){
@@ -64,17 +95,32 @@ const CheckOut = () => {
         });
       });
 
+       console.log(userData);
+
     const checkoutOrder = (e) => {
         e.preventDefault();
         let orderData = {
-            shipping_details: {
-                customer_name: customerName,
-                customer_email: email,
-                customer_phone: phone,
-                customer_address: address,
+
+            customer_id: userData?.id ? userData.id : null,
+            customer_details:{
+                customer_name: userData?. name ? userData.name : null,
+                customer_email: userData?.email ? userData.email : null,
+                customer_phone: userData?.phone ? userData.phone : null,
+                customer_address:'',
                 customer_city: city,
+                customer_area: area,
                 customer_zip: zip,
-                shipping_area: area
+                shipping_area:area
+            },
+
+            shipping_details: {
+                customer_name: defaultAddress?.name ?? customerName,
+                customer_email: defaultAddress?.email ?? email,
+                customer_phone: defaultAddress?.phone ?? phone,
+                customer_address: defaultAddress?.address ?? address,
+                customer_city:city ?? defaultAddress?.shipping_state?.name=='Inside Dhaka' ? 'inside_dhaka' : 'outside_dhaka',
+                customer_zip: defaultAddress?.zip ?? zip,
+                shipping_area: defaultAddress?.area ?? area
             },
             products: cartProducts,
             order_note: orderNote,
@@ -124,8 +170,38 @@ const CheckOut = () => {
                         >
 
                             <div>
+                                  
+                                   {userData?.id ? (
+                                    
+                                    <>
+                                    {defaultAddress && (
+                                        <div className="bg-white address_div mt-5 h-min border rounded ">
+                                        <div className="grid sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 h-full p-8 saveAddDiv">
+                                            <div className="col-span-4 p-1 nameAdd">
+                                                <p className=''>{defaultAddress.name}</p>
+                                                <p>{defaultAddress.phone}</p>
+                                                <p>{defaultAddress.email}</p>
+                                            </div>
+                                            <div className="col-span-4  p-1 areaAdd">
+                                                <p>{defaultAddress.address}</p>
+                                                <h5 className='mt-2 '><b>
+                                                    <small className="bg-gray-800 text-white text-sm p-1 rounded-md">Default Address</small>
+                                               </b></h5>
+                                            </div>
+                                            <div className="col-span-4 p-1 parmADD">
+                                                <p>{defaultAddress.area && defaultAddress.area}</p>
+                                                <p>{defaultAddress.shipping_id === '1' ? "Inside Dhaka" : "Outside Dhaka"}</p>
+                                                <p>{defaultAddress.zip && defaultAddress.zip}</p></div>
+                                        </div>
+                                    </div>
+                                    )}
+                                    </>
 
-                                <input className="border-4 mb-4" type="text" name="customer_name"
+                                         ) :
+                                        (
+
+                                    <div>
+                                    <input className="border-4 mb-4" type="text" name="customer_name"
                                     value={customerName}
                                     onChange={(e) => { setCustomerName(e.target.value) }}
                                     placeholder="Enter Your Name" />
@@ -170,6 +246,10 @@ const CheckOut = () => {
                                     value={address}
                                     onChange={(e) => { setAddress(e.target.value) }}
                                     placeholder="Address" />
+
+                                    </div>                                
+
+                                    )} 
                                 <br />
                                 <textarea className="border-4 mb-4" type="text" name="customer_name"
                                 rows={4}
