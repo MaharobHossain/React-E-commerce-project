@@ -12,17 +12,22 @@ const ProductDetails = () => {
     const [attributeId, setAttributeId] = useState(); 
     const {addItem} = useCart();
     const { slug } = useParams();
+    const [quantity, setQuantity] = useState(1);
+    const [selectedAttribute, setSelectedAttribute] = useState();
+
 
     useEffect(() =>{
         
         axios.get('get-product/' + slug)
         .then((response) => {
             console.log(response);
-            if (response?.data?.data);
+            if (response?.data?.success){
+              setProductDetails(response?.data?.data);
+              setProductPrice(response?.data?.data?.formatted_final_product_price);
+              setProduct(response?.data?.data);
+            }
 
-            setProductDetails(response?.data?.data);
-            setProductPrice(response?.data?.data?.formatted_final_product_price);
-            setProduct(response?.data?.data);
+
         })
         .catch((err) => {
             console.log(err)
@@ -53,27 +58,49 @@ const ProductDetails = () => {
                   return(
                     <button key={index} className={`p-4 rounded-lg mr-4 ${(attributeId==attribute?.id) ?'bg-green-500 text-black' : 'bg-green-200' }`} onClick={()=>{
                       setProductPrice(attribute.attribute_final_price);
-                      setAttributeId(attribute?.id)}}>{attribute?.attribute_value}</button>
+                      setAttributeId(attribute?.id)
+                      setSelectedAttribute(attribute)
+                      }
+                      }>{attribute?.attribute_value}</button>
                   );
                 })}
 
                </div>
+
                  <br/>
 
-                 <div className=''>
+                 <div className='flex my-4'>
+
+                     <input className='w-[4rem] bg-yellow-400 text-black mr-2 hover:bg-black hover:text-white' type='number' min={1} max={100} name='quantity' onChange={(e) => setQuantity(e.target.value)} />
+                    
                      <button className='bg-yellow-400 text-black p-3 rounded-lg hover:bg-black hover:text-white' onClick={(e)=>{
                        e.preventDefault();
-                       addItem({
-                        id:product?.id,
-                        product_id: product?.id,
-                        name:product?.name,
-                        price:productPrice,
-                        image:product?.image?.small,
-                        stock:product?.stock
-                       },1);
-                       Toaster("Product Add to cart", 'success')
+
+                      if(!selectedAttribute){
+                        Toaster('Please select Variation frist', 'warn')
+                      }
+
+                      else if( Number(selectedAttribute?.stock) > 0) {
+                      
+                        addItem({
+                          id: selectedAttribute?.id + '-' + selectedAttribute?.product_id,
+                          product_id: selectedAttribute?.product_id,
+                          name: ProductDetails?.name + '('+ selectedAttribute?.attribute_value +')',
+                          slug:ProductDetails?.slug,
+                          price:selectedAttribute?.attribute_final_price,
+                          image:ProductDetails?.image?.small,
+                          stock:selectedAttribute?.stock
+                         }, quantity);
+                         Toaster("Product Add to cart", 'success')
+
+                      }
+
+                      else{
+                         Toaster('Product is out of stock', 'warn')
+                          }
+                       
                      }}> Add to curt</button>
-                     </div>
+                 </div>
               
 
           </div>

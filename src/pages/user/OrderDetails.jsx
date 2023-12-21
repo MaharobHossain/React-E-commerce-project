@@ -1,44 +1,118 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../components/UserProvider';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../../layouts/Layout';
 import DashboardLayout from '../../layouts/DashboardLayout';
 
-const OrderDetails = () => {
-
-    const {userData, updateUserData}=useContext(UserContext);
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const [order, setOrder] = useContext();
-
+const OrderList = () => {
+    
+    const {userData, updateUserData } = useContext(UserContext);
+    // const navigate = useNavigate();
+    const [orders, setOrders] = useState();
+  
     useEffect(() =>{
-        if (userData?.token && !orders) {
-            axios.get('get-order/' + id)
-            .then(response =>{
-                if(response.data.success){
-                    setOrder(response?.data?.data);
-                }
-            }).catch(error => {
-                console.log(error);
-            })
-         
-        }
-    }, [userData, order])
+      if (userData?.token && !orders) {
+        axios
+        .get("get-customer-orders/" + userData?.id)
+        .then(response =>{
+          // console.log(response);
+          setOrders(response?.data);
+        }).catch(error => {
+          console.log(error);
+        })
+      }
+    }, [userData, orders])
+    
   return (
     <div>
-      <Layout>
-
+       <Layout>
+  
         <DashboardLayout>
-        <p> This is OrderDetails page</p>
-        <h3 className='fw-bold text-xl'> Order Details  {order?.order_number} </h3>
-        {order?.time}
-        
+  
+        <p className='fw-bold bg-gray-400 text-xl'> Order List </p>
+  
+        <div className='table-auto'>
+            <table className='w-full text-left text-gray-500 ConOrderTable'>
+              <thead className='text-lg text-gray-700'>
+              <tr className='bg-gray-100 py-4 ConHeaderOrder'>
+                <th scope='col' className='p-3 ConMainHeaderTable'>
+                  Order Number
+                </th>
+  
+                <th scope='col' className='p-6 ConMainHeaderTable'>
+                  Date
+                </th>
+  
+                <th scope='col' className='p-6 ConMainHeaderTable'>
+                  Status
+                </th>
+  
+                <th scope='col' className='p-6 ConMainHeaderTable'>
+                  Amount
+                </th>
+  
+                <th scope='col' className='p-6 ConMainHeaderTable'>
+                  Action
+                </th>
+              </tr>
+             </thead>
+  
+              <tbody className='w-full'>
+                {orders && (
+                  orders.lenght > 0 ? (
+                    orders.map((order, key) =>{
+  
+                      return(
+                        <tr key={key} className='w-full conTableDesc mt-3'>
+                          
+                          <td scope='row' dataTitle="Order number" className='px-6 py-4 font-medium text-gray-900 ConOrderTablwTh'>
+                            #{order.order_number}
+                          </td>
+  
+                          <td dataTitle="Date" className="px-6 py-4 ConOrderTableTh">
+                              {/* {order.order_date_time} */}
+                            {order.order_date_time.slice(0, 10)}
+                            <br/>
+                            {order.order_date_time.slice(12, 19)}
+                          </td>
+  
+                          <td dataTitle="Status" className="px-6 py-4 ConOrderTableTh">
+                                 {/* {order.status} */}
+                             {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                                 {/* {order.status.charAt(0).toUpperCase() + order.status.slice(1)} */}
+                          </td>
+  
+                          <td dataTitle="Amount" className="px-6 py-4 font-bold ConOrderTableTh">
+                            {order.pay_amount} Tk
+                          </td>
+  
+                          <td className='text-center'>
+                          <Link to={`/user/order/order-details/${order.id}`} className='bg-blue-700 rounded-lg px-4 text-white hover:bg-blue-900'>View</Link>
+                          </td>
+                        </tr>
+                      )
+                    }
+                    )
+  
+                  ) : (
+                        <tr className='text-center'> <td colspan="100%" > <h2 className='text-2xl font-bold text-amber-500 mt-3'>No Orders Found!</h2></td>
+                        </tr>
+  
+                  )
+                )}
+  
+              </tbody>
+  
+            </table>
+  
+        </div>
+  
         </DashboardLayout>
-
-      </Layout>
+  
+       </Layout>
     </div>
-  )
-}
-
-export default OrderDetails;
+  );
+  }
+  
+  export default OrderList;
