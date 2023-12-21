@@ -32,7 +32,7 @@ const ProductDetails = () => {
     console.log(productPrice)
   return (
 
-    <div>
+     <div>
 
       <Layout>
       <h3 className="bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold">This is product Details page</h3>

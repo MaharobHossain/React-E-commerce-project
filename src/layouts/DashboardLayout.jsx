@@ -33,7 +33,9 @@ const DashboardLayout = ({children}) => {
                <Link to={'/user/dashbord'} className={`mx-4 p-2 ${window.location.pathname === '/user/dashbord' ? 'bg-blue-800 text-white' : 'bg-blue-400'} rounded-lg flex w-100 justify-center mb-4`}>Dashboard</Link>
                <Link to={'/user/profile'} className={`mx-4 p-2 ${window.location.pathname === '/user/profile' ? 'bg-blue-800 text-white' : 'bg-blue-400'} rounded-lg flex w-100 justify-center mb-4`}>Profile</Link>
                <Link to={'/user/addresses'} className={`mx-4 p-2 ${window.location.pathname === '/user/addresses' ? 'bg-blue-800 text-white' : 'bg-blue-400'} rounded-lg flex w-100 justify-center mb-4`}>Address Book</Link>
+               <Link to={'/user/order-list'} className={`mx-4 p-2 ${window.location.pathname === '/user/order-list' ? 'bg-blue-800 text-white' : 'bg-blue-400'} rounded-lg flex w-100 justify-center mb-4`}>Orders</Link>
                
+
                </div>
                
                <div className='col-span-4 p-6'>

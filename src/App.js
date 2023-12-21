@@ -17,6 +17,8 @@ import Profile from './pages/user/Profile';
 import Blogs from './pages/Blogs';
 import AddAddress from './pages/user/AddAddress';
 import AddressBook from './pages/user/AddressBook';
+import OrderList from './pages/user/OrderList';
+import OrderDetails from './pages/user/OrderDetails';
 
 
 function App() {
@@ -41,6 +43,9 @@ function App() {
       <Route exact path='/blogs' element={<Blogs/>}></Route>
       <Route exact path='/user/addresses' element={<AddressBook/>} ></Route>
       <Route exact path='/user/add-address' element={<AddAddress/>} ></Route>
+      <Route exact path='/user/order-list' element={ <OrderList/> }></Route>
+      <Route exact path='/user/order/order-details/:id' element={<OrderDetails/>}></Route>
+      
     </Routes>
     </UserProvider>
     </SettingsProvider>
