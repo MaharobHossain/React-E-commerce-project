@@ -68,14 +68,12 @@ const OrderList = () => {
                                                       #{order.order_number}
                                                   </td>
                                                   <td dataTitle="Date" className="px-6 py-4 ConOrderTableTh">
-                                                      {/* {order.order_date_time} */}
                                                       {order.order_date_time.slice(0, 10)} <br/>
                                                       {order.order_date_time.slice(12, 19)}
                                                   </td>
                                                   <td dataTitle="Status" className="px-6 py-4 ConOrderTableTh">
-                                                      {/* {order.status} */}
+                                        
                                                       {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                                                      {/* {order.status.charAt(0).toUpperCase() + order.status.slice(1)} */}
                                                   </td>
                                                   <td dataTitle="Amount" className="px-6 py-4 font-bold ConOrderTableTh">
                                                       {order.pay_amount} Tk
