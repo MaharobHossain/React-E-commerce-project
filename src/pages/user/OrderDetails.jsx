@@ -42,6 +42,10 @@ const OrderDetails = () => {
                   <h3 className="fw-bold text-xl">Order details {order?.order_number}</h3>
 
                 {order?.time}
+                {order?.time}
+                {order?.time}
+                {order?.time}
+                {order?.time}
 
                 {/* {order?.order_details.map()} */}
 
