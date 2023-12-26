@@ -39,7 +39,7 @@ const Navbar = () => {
    return (
 
       <>
-         <nav className="sticky top-0 z-40 w-full backdrop-blur flex items-center justify-between p-4 lg:px-6 border-b border-gray-200">
+         <nav className="sticky top-0 z-40 w-full backdrop-blur flex items-center justify-between p-4 lg:px-6 border-b border-gray-200 ">
             <div className="block flex-none md:hidden">
                <MobileMenu />
             </div>
@@ -59,7 +59,7 @@ const Navbar = () => {
 
                <div className='#'>
                   <Link to={'/blogs'}
-                  className='text-neutral-500 underline-offset-4 mx-4 hover:text-black hover:underline'>
+                  className='bg-yellow-400 text-black p-3 rounded-lg hover:bg-black hover:text-white  absolute right-[20%] top-[30%] text-sm w-15 h-9 '>
                   Blogs
                   </Link>
               </div>

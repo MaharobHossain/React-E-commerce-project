@@ -23,6 +23,7 @@ return (
 <div>
    <Layout>
    <p className='bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold'>It's Blog page.</p>
+   
 
    {blogs && blogs.map((blog, index) => {
       return(
