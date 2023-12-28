@@ -84,7 +84,10 @@ console.log(settingsDataFromContext)
 
 
   return (
-    <div>
+
+<div className="bg-teal-400">
+
+ <div>
       <Layout>
       {/* slider ar kaj */}
         <Slider {...slickSettings}>
@@ -121,7 +124,7 @@ console.log(settingsDataFromContext)
 
       <div className='p-2 my-6'>
       <div className="bg-gray-900">
-      <h2 className="text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold">Popular Products List</h2>
+      <h2 className="text-teal-400 text-center lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold">Popular Products List</h2>
       </div>
       
        <div className='items-center justify-center min-h-screen container mx-auto grid gap-5  grid-cols-4'>
@@ -141,7 +144,9 @@ console.log(settingsDataFromContext)
       </Layout>
       
     </div>
+
+</div>
   )
 }
 
-export default Home
+export default Home;

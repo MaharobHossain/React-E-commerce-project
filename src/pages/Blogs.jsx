@@ -20,16 +20,16 @@ useEffect(() => {
 
 
 return (
-<div>
+<div className="bg-teal-400">
    <Layout>
-   <p className='bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold'>It's Blog page.</p>
+   <p className='bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold text-center'>It's Blog page.</p>
    
 
    {blogs && blogs.map((blog, index) => {
       return(
-         <Link to={`/blog/${blog.slug}`} key={index}>
+         <Link  to={`/blog/${blog.slug}`} key={index}>
 
-          <div className='bg-white m-6 p-6 rounded-lg flex'>
+          <div className='bg-white m-6 p-6 rounded-lg flex bg-teal-400'>
               <img src={blog.image} className='h-auto px-6' width={300} />
 
               <div className=''>

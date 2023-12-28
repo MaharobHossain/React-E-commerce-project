@@ -61,10 +61,10 @@ const [isPasswordMatched, setIsPasswordMatched] = useState(0);
 
                 
 return (
-        <>
+        <div className="bg-teal-400">
           <Layout>
-            <div className="mt-12 w-100 flex justify-center items-center">
-              <div className="w-[30rem] bg-white mt-4 p-4">
+            <div className="mt-12 w-100 flex justify-center bg-teal-400 items-center">
+              <div className="w-[30rem] bg-white mt-4 p-4 ">
                  <form method="post" onSubmit={(e) => signUp(e)}>
                     <div class="relative z-0 w-full mb-6 group">
                       <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)}
@@ -130,7 +130,7 @@ return (
 </div>
 
 </Layout>
-</>
+</div>
 );
 }
 

@@ -31,7 +31,7 @@ const OrderList = () => {
 
 
   return (
-      <>
+      <div className="bg-teal-400">
           <Layout>
 
               <DashboardLayout>
@@ -98,7 +98,7 @@ const OrderList = () => {
 
 
           </Layout>
-      </>
+      </div>
   );
 }
 

@@ -48,7 +48,7 @@ const Navbar = () => {
                <div className="flex w-full h-[70px] md:w-1/3">
                   <Link to="/" className="mr-2 flex w-50 items-center justify-center md:w-auto lg:mr-6">
                      <img src={require('../assets/images/Logo.png')} className='w-[20px] md:w-full' width={90} alt='' />
-                     <div className="ml-2 flex-none text-green-500 text-2xl font-bold uppercase md:hidden lg:block">
+                     <div className="ml-2 flex-none text-black text-2xl font-bold uppercase md:hidden lg:block">
                         DhakaShop.XYZ
                      </div>
                   </Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
 
                <div className='#'>
                   <Link to={'/blogs'}
-                  className='bg-yellow-400 text-black p-3 rounded-lg hover:bg-black hover:text-white  absolute right-[20%] top-[30%] text-sm w-15 h-9 '>
+                  className='bg-black text-white p-3 rounded-lg hover:bg-purple-900 hover:text-white absolute right-[20%] top-[30%] text-sm w-15 h-9 '>
                   Blogs
                   </Link>
               </div>

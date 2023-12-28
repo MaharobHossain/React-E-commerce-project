@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Search from './Search';
+import AddressBook from './../pages/user/AddressBook';
 
 function MobileMenu() {
 
@@ -78,12 +79,42 @@ function MobileMenu() {
                         Home
                       </Link>
                    </li>
+
+                   <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                       <Link to='/blogs' className={window.location.pathname === '/' ? 'mobileMenudActive' : ''}>
+                       Blogs
+                      </Link>
+                       </li>
                        
                        <li className='text-lg text-black transition-colors hover:text-green-600 '>
                        <Link to='/cart' className={window.location.pathname === '/' ? 'mobileMenudActive' : ''}>
                        Cart 
                       </Link>
                        </li>
+  
+                       <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            Dashboard
+                            </Link>
+                           </li>
+
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/profile'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            Profile
+                            </Link>
+                           </li>
+
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/addresses'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            AddressBook
+                            </Link>
+                           </li>
+
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/order-list'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            Orders
+                            </Link>
+                           </li>
 
                            <li className='text-lg text-black transition-colors hover:text-green-600 '>
                             <Link to='/sing-up'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
@@ -97,29 +128,7 @@ function MobileMenu() {
                             </Link>
                            </li>
 
-                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
-                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
-                            Dashboard
-                            </Link>
-                           </li>
 
-                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
-                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
-                            Dashboard
-                            </Link>
-                           </li>
-
-                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
-                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
-                            Dashboard
-                            </Link>
-                           </li>
-
-                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
-                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
-                            Dashboard
-                            </Link>
-                           </li>
 
                 </ul>
               </div>

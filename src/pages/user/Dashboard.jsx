@@ -6,7 +6,7 @@ import { UserContext } from '../../components/UserProvider'
 const Dashboard = () => {
       const {userData} = useContext(UserContext);
   return (
-    <div>
+    <div className="bg-teal-400">
           <Layout>
             <DashboardLayout>
               <div>

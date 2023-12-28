@@ -86,7 +86,7 @@ const Profile = () => {
    
             }
   return (
-    <div>
+    <div  className="bg-teal-400">
          <Layout>
           <DashboardLayout> 
             

@@ -37,10 +37,10 @@ const ProductDetails = () => {
     console.log(productPrice)
   return (
 
-     <div>
+     <div className="bg-teal-400">
 
       <Layout>
-      <h3 className="bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold">This is product Details page</h3>
+      <h3 className="bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold text-center">This is product Details page</h3>
         
         <div className='grid grid-cols-2'>
           <div>

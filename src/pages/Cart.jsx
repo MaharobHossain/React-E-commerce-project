@@ -12,12 +12,13 @@ const Cart = () => {
  
 
   return (
-    <div>
+    <div className="bg-teal-400">
+    
      
       <Layout>
          
-         <h3 className='text bg-blue-600'>This is cart Site.</h3>
-              <div className="p-4">
+         <h3 className='bg-gray-900 text-teal-400 lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold text-center'>This is cart Site.</h3>
+              <div className="p-4 bg-teal-400">
                 <table className="min-w-full divide-y divide-gray-300 bg-white p-4">
                 <thead>
                 <tr>

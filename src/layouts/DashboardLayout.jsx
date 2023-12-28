@@ -27,7 +27,7 @@ const DashboardLayout = ({children}) => {
         }
       },[userData])
   return (
-    <div>
+    <div className="bg-teal-400">
           <div className='grid grid-cols-6'>
                <div className='col-span-2 p-6'>
                <Link to={'/user/dashbord'} className={`mx-4 p-2 ${window.location.pathname === '/user/dashbord' ? 'bg-blue-800 text-white' : 'bg-blue-400'} rounded-lg flex w-100 justify-center mb-4`}>Dashboard</Link>

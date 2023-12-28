@@ -55,12 +55,12 @@ const Login = () => {
                                                               }
 
     return (
-        <div>
+        <div className="bg-teal-400">
             <Layout>
 
-                <div className="mt-12 w-100 flex justify-center items-center">
+                <div className="bg-teal-400 mt-12 w-100 flex justify-center items-center">
                     <div className="w-[30rem] bg-white mt-4 p-4">
-                        <div className="w-100">
+                        <div className=" w-100">
                            {errorMsg && <center><span className="text-red-600 my-6">{errorMsg}</span></center>}
                               </div>
                                  <form method="post" onSubmit={(e) => login(e)}>

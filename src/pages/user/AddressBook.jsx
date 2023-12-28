@@ -86,7 +86,7 @@ const AddressBook = () => {
 
 
   return (
-      <>
+      <div className="bg-teal-400">
           <Layout>
 
               <DashboardLayout>
@@ -164,7 +164,7 @@ const AddressBook = () => {
 
 
           </Layout>
-      </>
+      </div>
   );
 }
 

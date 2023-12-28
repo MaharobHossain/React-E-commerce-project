@@ -98,7 +98,7 @@ const AddAddress = () => {
       event.preventDefault();
   };
   return (
-      <>
+      <div className="bg-teal-400">
           <Layout>
 
 
@@ -242,7 +242,7 @@ const AddAddress = () => {
 
 
           </Layout>
-      </>
+      </div>
   );
 }
 

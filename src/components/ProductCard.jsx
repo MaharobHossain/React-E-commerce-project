@@ -15,7 +15,7 @@ const ProductCard = (props) => {
   
       console.log(item);
       return (
-      <div >
+      <div>
        
        <Link to={`product/${item?.slug}`}>
   
