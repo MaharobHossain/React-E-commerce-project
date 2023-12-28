@@ -103,6 +103,23 @@ function MobileMenu() {
                             </Link>
                            </li>
 
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            Dashboard
+                            </Link>
+                           </li>
+
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            Dashboard
+                            </Link>
+                           </li>
+
+                           <li className='text-lg text-black transition-colors hover:text-green-600 '>
+                            <Link to='/user/dashbord'  className={window.location.pathname === '/' ? 'mobileMenudActive' : ''} >
+                            Dashboard
+                            </Link>
+                           </li>
 
                 </ul>
               </div>
