@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Search from './Search';
 import MobileMenu from './MobileMenu';
-import Logo from '../assets/images/Logo.png';
 import { useCart } from 'react-use-cart';
 import { UserContext } from '../components/UserProvider';
 import axios from 'axios';
 import Toaster from '../components/common/Toaster';
-import Blogs from './../pages/Blogs';
+
+
 
 
 
@@ -15,7 +15,7 @@ const Navbar = () => {
    const navigate = useNavigate();
    const { totalUniqueItems } = useCart();
    const { userData, updateUserData } = useContext(UserContext);
-
+   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
    const logOut = () => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${userData?.token}`;
@@ -53,6 +53,23 @@ const Navbar = () => {
                      </div>
                   </Link>
                </div>
+       
+               <div>
+                <Link to="/" className='mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6 relative'>
+                  <button className='bg-blue-400 px-4 py-2 md:hidden lg:block' onClick={()=> {setIsCategoryOpen(!isCategoryOpen)}}>
+                  All Categories
+                  </button>
+
+                  <div className={`grid grid-cols-2 p-2 bg-slate-300 absolute top-[2.6rem] ${isCategoryOpen ? '' : 'hidden'}`}>
+                 
+                 <div className='bg-yellow-300 mx-1'>Category No 1</div>
+                 <div className='bg-yellow-300 mx-1'>Category No 2</div>
+                 <div className='bg-yellow-300 mx-1'>Category No 3</div>
+                 <div className='bg-yellow-300 mx-1'>Category No 4</div>
+                  </div>
+                </Link>
+               </div>
+               
                <div className="hidden  justify-end md:flex md:w-1/3">
                   <Search />
                </div>
