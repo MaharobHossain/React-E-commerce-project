@@ -50,4 +50,4 @@ const AllCetagoriesTopUp = ({}) => {
 </div>
 )
 }
-export default AllCetagoriesTopUp
+export default AllCetagoriesTopUp;

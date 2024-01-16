@@ -54,7 +54,7 @@ const Navbar = () => {
                   </Link>
                </div>
        
-               <div>
+               {/* <div>
                 <Link to="/" className='mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6 relative'>
                   <button className='bg-blue-400 px-4 py-2 md:hidden lg:block' onClick={()=> {setIsCategoryOpen(!isCategoryOpen)}}>
                   All Categories
@@ -68,7 +68,7 @@ const Navbar = () => {
                  <div className='bg-yellow-300 mx-1'>Category No 4</div>
                   </div>
                 </Link>
-               </div>
+               </div> */}
                
                <div className="hidden  justify-end md:flex md:w-1/3">
                   <Search />
