@@ -85,7 +85,7 @@ console.log(settingsDataFromContext)
 
   return (
 
-<div className="bg-teal-400">
+<div className="">
 
  <div>
       <Layout>
