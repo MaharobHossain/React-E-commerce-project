@@ -10,7 +10,7 @@ const AllCetagoriesTopUp = ({}) => {
     const navigate =useNavigate();
     let isLoaded = 0;
 
-    // let isLoaded = 0;
+   
 
     useEffect(()=>{
 
